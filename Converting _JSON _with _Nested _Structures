@@ -1,0 +1,28 @@
+import pandas as pd
+from pandas import json_normalize
+
+data = [
+    {
+        "id": 1,
+        "name": "Dip",
+        "address": {
+            "street": "RTo Road",
+            "city": "Ahmedabad"
+        },
+        "scores": [90, 85, 88]
+    },
+    {
+        "id": 2,
+        "name": "Rachit",
+        "address": {
+            "street": "Limda Chowk",
+            "city": "Rajkot"
+        },
+        "scores": [75, 95, 80]
+    }
+]
+df = json_normalize(data)
+df.columns = df.columns.str.replace('.', '_')
+df = df.explode('scores')
+
+print(df)
