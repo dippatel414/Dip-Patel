@@ -1,0 +1,4 @@
+import numpy as np
+matrix = np.array([[2, 5],  [1, 3]])
+det = np.linalg.det(matrix)
+print(f"The determinant is {det}")
