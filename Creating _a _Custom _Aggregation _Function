@@ -1,0 +1,10 @@
+import pandas as pd
+data = {
+    'Team': ['Rachit', 'Rachit', 'Dip', 'Dip', 'Shaan', 'Shaan'],
+    'Score': [15, 25, 30, 10, 20, 35]
+}
+df = pd.DataFrame(data)
+def my_range(series):
+    return series.max() - series.min()
+result = df.groupby('Team').agg(range_score=('Score', my_range))
+print(result)
